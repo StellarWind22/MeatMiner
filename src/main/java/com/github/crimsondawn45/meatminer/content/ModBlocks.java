@@ -12,9 +12,13 @@ import net.minecraft.item.Item;
 public class ModBlocks extends MContent {
 
     public static MBlock meat_ore;
+    public static MBlock nether_meat_ore;
+    public static MBlock end_meat_ore;
 
     @Override
     public void registerContent(){
         meat_ore = new MBlock("meat_ore", new BlockItem(new Block(FabricBlockSettings.copyOf(Blocks.STONE)), new Item.Settings()));
+        nether_meat_ore = new MBlock("nether_meat_ore", new BlockItem(new Block(FabricBlockSettings.copyOf(Blocks.STONE)), new Item.Settings()));
+        end_meat_ore = new MBlock("end_meat_ore", new BlockItem(new Block(FabricBlockSettings.copyOf(Blocks.STONE)), new Item.Settings()));
     }
 }

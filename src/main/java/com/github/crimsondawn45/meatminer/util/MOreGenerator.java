@@ -7,6 +7,7 @@ import com.github.crimsondawn45.meatminer.MeatMinerInit;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
+import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -17,7 +18,6 @@ import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.FeatureConfig;
-import net.minecraft.world.gen.feature.OreConfiguredFeatures;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.placementmodifier.CountPlacementModifier;
@@ -29,12 +29,12 @@ public class MOreGenerator {
     private static ConfiguredFeature<? extends Feature<FeatureConfig>, ? extends FeatureConfig> ORE_CONFIGURED_FEATURE;
     public static PlacedFeature ORE_PLACED_FEATURE;
 
-    public MOreGenerator(MBlock ore, Predicate<BiomeSelectionContext> biomeSelector, int veinsPerChunk, int veinSize, YOffset min, YOffset max) {
+    public MOreGenerator(MBlock ore, Predicate<BiomeSelectionContext> biomeSelector, RuleTest placementRules, int veinsPerChunk, int veinSize, YOffset min, YOffset max) {
 
         ORE_CONFIGURED_FEATURE = new ConfiguredFeature(
             Feature.ORE,
             new OreFeatureConfig(
-                OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
+                placementRules,
                 ore.getBlock().getDefaultState(),  // ore
                 veinSize)); // vein size
 
