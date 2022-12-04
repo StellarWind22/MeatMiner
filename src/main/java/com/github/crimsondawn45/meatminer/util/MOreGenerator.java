@@ -29,7 +29,7 @@ public class MOreGenerator {
     private static ConfiguredFeature<? extends Feature<FeatureConfig>, ? extends FeatureConfig> ORE_CONFIGURED_FEATURE;
     public static PlacedFeature ORE_PLACED_FEATURE;
 
-    public MOreGenerator(MBlock ore, Predicate<BiomeSelectionContext> biomeSelector, RuleTest placementRules, int veinsPerChunk, int veinSize, YOffset min, YOffset max) {
+    public MOreGenerator(String name, MBlock ore, Predicate<BiomeSelectionContext> biomeSelector, RuleTest placementRules, int veinsPerChunk, int veinSize, YOffset min, YOffset max) {
 
         ORE_CONFIGURED_FEATURE = new ConfiguredFeature(
             Feature.ORE,
@@ -47,8 +47,8 @@ public class MOreGenerator {
             )); // height
 
         //Register features
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(MeatMinerInit.MOD_ID, "ore"), ORE_CONFIGURED_FEATURE);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(MeatMinerInit.MOD_ID, "ore"), ORE_PLACED_FEATURE);
-        BiomeModifications.addFeature(biomeSelector, GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MeatMinerInit.MOD_ID, "ore")));
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(MeatMinerInit.MOD_ID, name + "_" + ore.getName()), ORE_CONFIGURED_FEATURE);
+        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(MeatMinerInit.MOD_ID, name + "_" + ore.getName()), ORE_PLACED_FEATURE);
+        BiomeModifications.addFeature(biomeSelector, GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MeatMinerInit.MOD_ID, name + "_" + ore.getName())));
     }
 }

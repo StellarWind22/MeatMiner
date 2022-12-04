@@ -23,8 +23,8 @@ public class ModGeneration extends MContent {
 
         endPlacement = new BlockMatchRuleTest(Blocks.END_STONE);
 
-        overworldMeatOre =  new MOreGenerator(ModBlocks.meat_ore,           BiomeSelectors.foundInOverworld(), OreConfiguredFeatures.STONE_ORE_REPLACEABLES, 10, 8, YOffset.BOTTOM, YOffset.TOP);
-        netherMeatOre =     new MOreGenerator(ModBlocks.nether_meat_ore,    BiomeSelectors.foundInTheNether(), OreConfiguredFeatures.BASE_STONE_NETHER,      10, 8, YOffset.BOTTOM, YOffset.TOP);
-        endMeatOre =        new MOreGenerator(ModBlocks.end_meat_ore,       BiomeSelectors.foundInTheEnd(),    endPlacement,                                 10, 8, YOffset.BOTTOM, YOffset.TOP);
+        overworldMeatOre =  new MOreGenerator("overworld",  ModBlocks.meat_ore,           BiomeSelectors.foundInOverworld(), OreConfiguredFeatures.STONE_ORE_REPLACEABLES, 10, 8, YOffset.BOTTOM, YOffset.TOP);
+        netherMeatOre =     new MOreGenerator("nether",     ModBlocks.nether_meat_ore,    BiomeSelectors.foundInTheNether(), OreConfiguredFeatures.BASE_STONE_NETHER,      10, 8, YOffset.BOTTOM, YOffset.TOP);
+        endMeatOre =        new MOreGenerator("end",        ModBlocks.end_meat_ore,       BiomeSelectors.foundInTheEnd(),    endPlacement,                                 10, 8, YOffset.BOTTOM, YOffset.TOP);
     }
 }

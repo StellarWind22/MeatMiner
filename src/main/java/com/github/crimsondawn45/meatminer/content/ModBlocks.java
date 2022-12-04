@@ -15,6 +15,8 @@ public class ModBlocks extends MContent {
     public static MBlock nether_meat_ore;
     public static MBlock end_meat_ore;
 
+    public static MBlock raw_meat_block;
+
     @Override
     public void registerContent(){
         meat_ore = new MBlock("meat_ore", new BlockItem(new Block(FabricBlockSettings.copyOf(Blocks.STONE)), new Item.Settings()));
