@@ -1,5 +1,11 @@
 package com.github.crimsondawn45.meatminer.content;
 
-public class ModBlocks {
-    
+import com.github.crimsondawn45.meatminer.util.MContent;
+
+public class ModBlocks extends MContent {
+
+    @Override
+    public void registerContent(){
+        
+    }
 }
