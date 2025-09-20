@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "meatminer:meat",
-    "meatminer:cooked_meat"
+    "meatminer:meat_nugget",
+    "meatminer:cooked_meat",
+    "meatminer:cooked_meat_nugget"
   ]
 }
