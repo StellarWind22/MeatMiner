@@ -15,7 +15,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.stellarwind22.meatminer.fabric.init.MeatminerFabric"
+      "com.stellarwind22.meatminer.fabric.init.MeatMinerFabric"
+    ],
+    "client": [
+      "com.stellarwind22.meatminer.fabric.init.MeatMinerClientFabric"
     ]
   },
   "mixins": [

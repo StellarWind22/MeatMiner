@@ -1,71 +1,87 @@
 package com.stellarwind22.meatminer.mixin;
 
-import com.stellarwind22.meatminer.content.MeatMinerItems;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Optional;
 
 @Mixin(MerchantOffer.class)
 public class MerchantOfferMixin {
 
-    @ModifyVariable(
-            at = @At("HEAD"),
-            method = "<init>(Lnet/minecraft/world/item/trading/ItemCost;Ljava/util/Optional;Lnet/minecraft/world/item/ItemStack;IIF)V",
-            index = 1,
-            argsOnly = true
+    @Inject(
+            at = @At("RETURN"),
+            method = "getBaseCostA"
     )
-    private static ItemCost costA(ItemCost costA) {
-        if(costA.item().value().equals(Items.EMERALD)) {
-            costA = new ItemCost(
-                    MeatMinerItems.MEAT.get(),
-                    costA.count()
-            );
-        }
-        return costA;
+    public void getBaseCostA(CallbackInfoReturnable<ItemStack> cir) {
+        //return this.baseCostA.itemStack();
     }
 
-    @ModifyVariable(
-            at = @At("HEAD"),
-            method = "<init>(Lnet/minecraft/world/item/trading/ItemCost;Ljava/util/Optional;Lnet/minecraft/world/item/ItemStack;IIF)V",
-            index = 2,
-            argsOnly = true
+    @Inject(
+            at = @At("RETURN"),
+            method = "getCostA"
     )
-    @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
-    private static Optional<ItemStack> costB (Optional<ItemStack> costB) {
-        if(costB.isPresent()) {
-            var costBItem = costB.orElseThrow();
-
-            if(costBItem.is(Items.EMERALD)) {
-                costB = Optional.of(
-                        new ItemStack(
-                                MeatMinerItems.MEAT.get(),
-                                costBItem.getCount()
-                        )
-                );
-            }
-        }
-        return costB;
+    public void getCostA(CallbackInfoReturnable<ItemStack> cir) {
+        //return this.baseCostA.itemStack().copyWithCount(this.getModifiedCostCount(this.baseCostA));
     }
 
-    @ModifyVariable(
-            at = @At("HEAD"),
-            method = "<init>(Lnet/minecraft/world/item/trading/ItemCost;Ljava/util/Optional;Lnet/minecraft/world/item/ItemStack;IIF)V",
-            index = 3,
-            argsOnly = true
+    @Inject(
+            at = @At("RETURN"),
+            method = "getCostB"
     )
-    private static ItemStack result(ItemStack result) {
-        if(result.is(Items.EMERALD)) {
-            result = new ItemStack(
-                    MeatMinerItems.MEAT.get(),
-                    result.getCount()
-            );
-        }
-        return result;
+    public void getCostB(CallbackInfoReturnable<ItemStack> cir) {
+        //return this.costB.map(ItemCost::itemStack).orElse(ItemStack.EMPTY);
+    }
+
+    @Inject(
+            at = @At("RETURN"),
+            method = "getItemCostA"
+    )
+    public void getItemCostA(CallbackInfoReturnable<ItemCost> cir) {
+        //return this.baseCostA;
+    }
+
+    @Inject(
+            at = @At("RETURN"),
+            method = "getItemCostB"
+    )
+    public void getItemCostB(CallbackInfoReturnable<Optional<ItemCost>> cir) {
+        //return this.costB;
+    }
+
+    @Inject(
+            at = @At("RETURN"),
+            method = "getResult"
+    )
+    public void getResult(CallbackInfoReturnable<ItemStack> cir) {
+        //return this.result;
+    }
+
+    @Inject(
+            at = @At("RETURN"),
+            method = "assemble"
+    )
+    public void assemble(CallbackInfoReturnable<ItemStack> cir) {
+        //return this.result.copy();
+    }
+
+    @Inject(
+            at = @At("RETURN"),
+            method = "satisfiedBy"
+    )
+    public void satisfiedBy(ItemStack itemStack, ItemStack itemStack2, CallbackInfoReturnable<Boolean> cir) {
+//        if (this.baseCostA.test(itemStack) && itemStack.getCount() >= this.getModifiedCostCount(this.baseCostA)) {
+//            if (!this.costB.isPresent()) {
+//                return itemStack2.isEmpty();
+//            } else {
+//                return ((ItemCost)this.costB.get()).test(itemStack2) && itemStack2.getCount() >= ((ItemCost)this.costB.get()).count();
+//            }
+//        } else {
+//            return false;
+//        }
     }
 }
