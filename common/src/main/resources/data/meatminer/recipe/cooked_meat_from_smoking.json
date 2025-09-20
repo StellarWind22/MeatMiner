@@ -3,7 +3,7 @@
   "category": "food",
   "cookingtime": 100,
   "experience": 0.35,
-  "ingredient": "meatminer:raw_meat",
+  "ingredient": "meatminer:meat",
   "result": {
     "id": "meatminer:cooked_meat"
   }

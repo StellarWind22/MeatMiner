@@ -5,10 +5,10 @@
     "**"
   ],
   "key": {
-    "*": "meatminer:raw_meat"
+    "*": "meatminer:meat"
   },
   "result": {
-    "id": "meatminer:raw_meat_block",
+    "id": "meatminer:meat_block",
     "count": 1
   }
 }

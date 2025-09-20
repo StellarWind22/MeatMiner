@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "meatminer:block/meat_ore" }
+  }
+}

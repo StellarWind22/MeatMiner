@@ -1,11 +1,11 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    "meatminer:raw_meat_block"
+    "meatminer:meat_block"
   ],
   "result": {
-    "id": "meatminer:raw_meat",
+    "id": "meatminer:meat",
     "count": 4
   },
-  "group": "raw_meat"
+  "group": "meat"
 }

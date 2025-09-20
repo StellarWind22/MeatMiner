@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "meatminer:item/raw_meat"
+    "layer0": "meatminer:item/meat_nugget"
   }
 }

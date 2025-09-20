@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "meatminer:raw_meat_ore",
-    "meatminer:deepslate_raw_meat_ore",
-    "meatminer:netherrack_raw_meat_ore",
-    "meatminer:end_stone_raw_meat_ore",
+    "meatminer:meat_ore",
+    "meatminer:deepslate_meat_ore",
+    "meatminer:netherrack_meat_ore",
+    "meatminer:end_stone_meat_ore",
     "meatminer:cooked_meat_ore",
     "meatminer:deepslate_cooked_meat_ore",
     "meatminer:netherrack_cooked_meat_ore",

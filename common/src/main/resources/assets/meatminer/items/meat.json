@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "meatminer:item/raw_meat"
+    "model": "meatminer:item/meat"
   }
 }

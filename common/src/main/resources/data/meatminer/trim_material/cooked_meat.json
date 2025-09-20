@@ -1,5 +1,5 @@
 {
-  "asset_name": "raw_meat",
+  "asset_name": "meat",
   "description":{
     "color": "#67493d",
     "translate": "trim_material.meatminer.cooked_meat"

@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "meatminer:block/deepslate_raw_meat_ore"
+    "all": "meatminer:block/deepslate_meat_ore"
   }
 }

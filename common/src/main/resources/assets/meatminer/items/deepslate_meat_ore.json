@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "meatminer:block/raw_meat_block"
+    "model": "meatminer:block/deepslate_meat_ore"
   }
 }

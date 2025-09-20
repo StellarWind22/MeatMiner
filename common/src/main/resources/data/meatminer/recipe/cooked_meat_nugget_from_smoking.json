@@ -3,7 +3,7 @@
   "category": "food",
   "cookingtime": 25,
   "experience": 0.09,
-  "ingredient": "meatminer:raw_meat_nugget",
+  "ingredient": "meatminer:meat_nugget",
   "result": {
     "id": "meatminer:cooked_meat_nugget"
   }

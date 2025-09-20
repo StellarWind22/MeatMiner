@@ -3,7 +3,7 @@
   "category": "food",
   "cookingtime": 2160,
   "experience": 1.38,
-  "ingredient": "meatminer:raw_meat_block",
+  "ingredient": "meatminer:meat_block",
   "result": {
     "id": "meatminer:cooked_meat_block"
   }
