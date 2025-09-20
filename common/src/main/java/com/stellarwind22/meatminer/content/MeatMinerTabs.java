@@ -7,6 +7,7 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
@@ -19,7 +20,7 @@ public class MeatMinerTabs {
     public static void init() {
         TABS = DeferredRegister.create(MeatMiner.MOD_ID, Registries.CREATIVE_MODE_TAB);
 
-        TAB = registerTab("main", CreativeTabRegistry.create(Component.translatable("tab.meatminer.main"), () -> new ItemStack(new DeferredItem(MeatMinerItems.RAW_MEAT))));
+        TAB = registerTab("main", CreativeTabRegistry.create(Component.translatable("tab.meatminer.main"), () -> new ItemStack(new DeferredItem<>(MeatMinerItems.MEAT_ORE))));
 
         TABS.register();
     }

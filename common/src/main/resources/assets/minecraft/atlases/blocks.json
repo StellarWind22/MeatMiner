@@ -1,29 +1,17 @@
 {
   "sources": [
     {
-      "type": "paletted_permutations",
+      "type": "minecraft:paletted_permutations",
+      "palette_key": "minecraft:trims/color_palettes/trim_palette",
       "textures": [
-        "trims/items/leggings_trim",
-        "trims/items/chestplate_trim",
-        "trims/items/helmet_trim",
-        "trims/items/boots_trim"
+        "minecraft:trims/items/helmet_trim",
+        "minecraft:trims/items/chestplate_trim",
+        "minecraft:trims/items/leggings_trim",
+        "minecraft:trims/items/boots_trim"
       ],
-      "palette_key": "trims/color_palettes/trim_palette",
       "permutations": {
-        "ender": "meatminer:trims/color_palettes/meat"
-      }
-    },
-    {
-      "type": "paletted_permutations",
-      "textures": [
-        "trims/items/leggings_trim",
-        "trims/items/chestplate_trim",
-        "trims/items/helmet_trim",
-        "trims/items/boots_trim"
-      ],
-      "palette_key": "trims/color_palettes/trim_palette",
-      "permutations": {
-        "ender": "meatminer:trims/color_palettes/cooked_meat"
+        "meat": "meatminer:trims/color_palettes/meat",
+        "cooked_meat": "meatminer:trims/color_palettes/cooked_meat"
       }
     }
   ]

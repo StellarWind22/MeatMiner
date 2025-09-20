@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.equipment.trim.TrimMaterial;
 
 import java.util.function.Function;
 
@@ -15,16 +16,19 @@ public class MeatMinerItems {
 
     private static DeferredRegister<Item> ITEMS;
 
+    public static ResourceKey<TrimMaterial> MEAT_TRIM;
+    public static ResourceKey<TrimMaterial> COOKED_MEAT_TRIM;
+
     //Raw
     //Pure
-    public static RegistrySupplier<Item> RAW_MEAT_NUGGET;
-    public static RegistrySupplier<Item> RAW_MEAT;
-    public static RegistrySupplier<BlockItem> RAW_MEAT_BLOCK;
+    public static RegistrySupplier<Item> MEAT_NUGGET;
+    public static RegistrySupplier<Item> MEAT;
+    public static RegistrySupplier<BlockItem> MEAT_BLOCK;
     //Ore
-    public static RegistrySupplier<BlockItem> RAW_MEAT_ORE;
-    public static RegistrySupplier<BlockItem> DEEPSLATE_RAW_MEAT_ORE;
-    public static RegistrySupplier<BlockItem> NETHERRACK_RAW_MEAT_ORE;
-    public static RegistrySupplier<BlockItem> END_STONE_RAW_MEAT_ORE;
+    public static RegistrySupplier<BlockItem> MEAT_ORE;
+    public static RegistrySupplier<BlockItem> DEEPSLATE_MEAT_ORE;
+    public static RegistrySupplier<BlockItem> NETHERRACK_MEAT_ORE;
+    public static RegistrySupplier<BlockItem> END_STONE_MEAT_ORE;
 
     //Cooked
     //Pure
@@ -40,21 +44,24 @@ public class MeatMinerItems {
     public static void init() {
         ITEMS = DeferredRegister.create(MeatMiner.MOD_ID, Registries.ITEM);
 
+        MEAT_TRIM = ResourceKey.create(Registries.TRIM_MATERIAL, ResourceLocation.fromNamespaceAndPath(MeatMiner.MOD_ID, "meat"));
+        COOKED_MEAT_TRIM = ResourceKey.create(Registries.TRIM_MATERIAL, ResourceLocation.fromNamespaceAndPath(MeatMiner.MOD_ID, "cooked_meat"));
+
         //Raw
         //Pure
-        RAW_MEAT_NUGGET = registerItem("raw_meat_nugget", props -> new Item(props.food(MeatMinerFoods.RAW_MEAT_NUGGET)));
-        RAW_MEAT = registerItem("raw_meat", props -> new Item(props.food(MeatMinerFoods.RAW_MEAT)));
-        RAW_MEAT_BLOCK = registerItem("raw_meat_block", props -> new BlockItem(MeatMinerBlocks.RAW_MEAT_BLOCK.get(), props.food(MeatMinerFoods.RAW_MEAT_BLOCK, MeatMinerFoods.MEAT_BLOCK_CONSUMABLE)));
+        MEAT_NUGGET = registerItem("meat_nugget", props -> new Item(props.food(MeatMinerFoods.MEAT_NUGGET, MeatMinerFoods.MEAT_NUGGET_CONSUMABLE).trimMaterial(MEAT_TRIM)));
+        MEAT = registerItem("meat", props -> new Item(props.food(MeatMinerFoods.MEAT).trimMaterial(MEAT_TRIM)));
+        MEAT_BLOCK = registerItem("meat_block", props -> new BlockItem(MeatMinerBlocks.MEAT_BLOCK.get(), props.food(MeatMinerFoods.MEAT_BLOCK, MeatMinerFoods.MEAT_BLOCK_CONSUMABLE)));
         //Ore
-        RAW_MEAT_ORE = registerItem("raw_meat_ore", props -> new BlockItem(MeatMinerBlocks.RAW_MEAT_ORE.get(), props));
-        DEEPSLATE_RAW_MEAT_ORE = registerItem("deepslate_raw_meat_ore", props -> new BlockItem(MeatMinerBlocks.DEEPSLATE_RAW_MEAT_ORE.get(), props));
-        NETHERRACK_RAW_MEAT_ORE = registerItem("netherrack_raw_meat_ore", props -> new BlockItem(MeatMinerBlocks.NETHERRACK_RAW_MEAT_ORE.get(), props));
-        END_STONE_RAW_MEAT_ORE = registerItem("end_stone_raw_meat_ore", props -> new BlockItem(MeatMinerBlocks.END_STONE_RAW_MEAT_ORE.get(), props));
+        MEAT_ORE = registerItem("meat_ore", props -> new BlockItem(MeatMinerBlocks.MEAT_ORE.get(), props));
+        DEEPSLATE_MEAT_ORE = registerItem("deepslate_meat_ore", props -> new BlockItem(MeatMinerBlocks.DEEPSLATE_MEAT_ORE.get(), props));
+        NETHERRACK_MEAT_ORE = registerItem("netherrack_meat_ore", props -> new BlockItem(MeatMinerBlocks.NETHERRACK_MEAT_ORE.get(), props));
+        END_STONE_MEAT_ORE = registerItem("end_stone_meat_ore", props -> new BlockItem(MeatMinerBlocks.END_STONE_MEAT_ORE.get(), props));
 
         //Cooked
         //Pure
-        COOKED_MEAT_NUGGET = registerItem("cooked_meat_nugget", props -> new Item(props.food(MeatMinerFoods.COOKED_MEAT_NUGGET)));
-        COOKED_MEAT = registerItem("cooked_meat", props -> new Item(props.food(MeatMinerFoods.COOKED_MEAT)));
+        COOKED_MEAT_NUGGET = registerItem("cooked_meat_nugget", props -> new Item(props.food(MeatMinerFoods.COOKED_MEAT_NUGGET, MeatMinerFoods.MEAT_NUGGET_CONSUMABLE).trimMaterial(COOKED_MEAT_TRIM)));
+        COOKED_MEAT = registerItem("cooked_meat", props -> new Item(props.food(MeatMinerFoods.COOKED_MEAT).trimMaterial(COOKED_MEAT_TRIM)));
         COOKED_MEAT_BLOCK = registerItem("cooked_meat_block", props -> new BlockItem(MeatMinerBlocks.COOKED_MEAT_BLOCK.get(), props.food(MeatMinerFoods.COOKED_MEAT_BLOCK, MeatMinerFoods.MEAT_BLOCK_CONSUMABLE)));
         //Ore
         COOKED_MEAT_ORE = registerItem("cooked_meat_ore", props -> new BlockItem(MeatMinerBlocks.COOKED_MEAT_ORE.get(), props));

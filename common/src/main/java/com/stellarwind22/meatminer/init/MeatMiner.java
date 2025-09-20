@@ -12,7 +12,6 @@ public class MeatMiner {
         MeatMinerTabs.init();
         MeatMinerBlocks.init();
         MeatMinerFoods.init();
-        MeatMinerTags.init();
         MeatMinerItems.init();
     }
 }

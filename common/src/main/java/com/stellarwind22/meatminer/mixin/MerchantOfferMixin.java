@@ -7,9 +7,7 @@ import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Optional;
 
@@ -25,7 +23,7 @@ public class MerchantOfferMixin {
     private static ItemCost costA(ItemCost costA) {
         if(costA.item().value().equals(Items.EMERALD)) {
             costA = new ItemCost(
-                    MeatMinerItems.RAW_MEAT.get(),
+                    MeatMinerItems.MEAT.get(),
                     costA.count()
             );
         }
@@ -46,7 +44,7 @@ public class MerchantOfferMixin {
             if(costBItem.is(Items.EMERALD)) {
                 costB = Optional.of(
                         new ItemStack(
-                                MeatMinerItems.RAW_MEAT.get(),
+                                MeatMinerItems.MEAT.get(),
                                 costBItem.getCount()
                         )
                 );
@@ -64,7 +62,7 @@ public class MerchantOfferMixin {
     private static ItemStack result(ItemStack result) {
         if(result.is(Items.EMERALD)) {
             result = new ItemStack(
-                    MeatMinerItems.RAW_MEAT.get(),
+                    MeatMinerItems.MEAT.get(),
                     result.getCount()
             );
         }

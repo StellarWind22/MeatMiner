@@ -18,28 +18,28 @@ public class MeatMinerBlocks {
     private static DeferredRegister<Block> BLOCKS;
 
     //Stone
-    public static RegistrySupplier<Block> RAW_MEAT_ORE;
+    public static RegistrySupplier<Block> MEAT_ORE;
     public static RegistrySupplier<Block> COOKED_MEAT_ORE;
 
     //Deepslate
-    public static RegistrySupplier<Block> DEEPSLATE_RAW_MEAT_ORE;
+    public static RegistrySupplier<Block> DEEPSLATE_MEAT_ORE;
     public static RegistrySupplier<Block> DEEPSLATE_COOKED_MEAT_ORE;
 
     //Netherrack
-    public static RegistrySupplier<Block> NETHERRACK_RAW_MEAT_ORE;
+    public static RegistrySupplier<Block> NETHERRACK_MEAT_ORE;
     public static RegistrySupplier<Block> NETHERRACK_COOKED_MEAT_ORE;
 
     //End Stone
-    public static RegistrySupplier<Block> END_STONE_RAW_MEAT_ORE;
+    public static RegistrySupplier<Block> END_STONE_MEAT_ORE;
     public static RegistrySupplier<Block> END_STONE_COOKED_MEAT_ORE;
 
-    public static RegistrySupplier<Block> RAW_MEAT_BLOCK;
+    public static RegistrySupplier<Block> MEAT_BLOCK;
     public static RegistrySupplier<Block> COOKED_MEAT_BLOCK;
 
     public static void init() {
         BLOCKS = DeferredRegister.create(MeatMiner.MOD_ID, Registries.BLOCK);
 
-        RAW_MEAT_ORE = registerBlock("raw_meat_ore", new MBlock(
+        MEAT_ORE = registerBlock("meat_ore", new MBlock(
                 Block::new,
                 Optional.of(Blocks.STONE)
         ));
@@ -49,7 +49,7 @@ public class MeatMinerBlocks {
                 Optional.of(Blocks.STONE)
         ));
 
-        DEEPSLATE_RAW_MEAT_ORE = registerBlock("deepslate_raw_meat_ore", new MBlock(
+        DEEPSLATE_MEAT_ORE = registerBlock("deepslate_meat_ore", new MBlock(
                 Block::new,
                 Optional.of(Blocks.DEEPSLATE)
         ));
@@ -59,7 +59,7 @@ public class MeatMinerBlocks {
                 Optional.of(Blocks.DEEPSLATE)
         ));
 
-        NETHERRACK_RAW_MEAT_ORE = registerBlock("netherrack_raw_meat_ore", new MBlock(
+        NETHERRACK_MEAT_ORE = registerBlock("netherrack_meat_ore", new MBlock(
                 Block::new,
                 Optional.of(Blocks.NETHERRACK)
         ));
@@ -69,7 +69,7 @@ public class MeatMinerBlocks {
                 Optional.of(Blocks.NETHERRACK)
         ));
 
-        END_STONE_RAW_MEAT_ORE = registerBlock("end_stone_raw_meat_ore", new MBlock(
+        END_STONE_MEAT_ORE = registerBlock("end_stone_meat_ore", new MBlock(
                 Block::new,
                 Optional.of(Blocks.END_STONE)
         ));
@@ -79,7 +79,7 @@ public class MeatMinerBlocks {
                 Optional.of(Blocks.END_STONE)
         ));
 
-        RAW_MEAT_BLOCK = registerBlock("raw_meat_block", new MBlock(
+        MEAT_BLOCK = registerBlock("meat_block", new MBlock(
                 Block::new,
                 Optional.of(Blocks.MUD)
         ));
