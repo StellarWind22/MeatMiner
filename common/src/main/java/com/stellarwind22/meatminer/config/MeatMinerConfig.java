@@ -1,4 +1,6 @@
 package com.stellarwind22.meatminer.config;
 
-public class MeatMinerConfig {
+import eu.midnightdust.lib.config.MidnightConfig;
+
+public class MeatMinerConfig extends MidnightConfig {
 }

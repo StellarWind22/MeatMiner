@@ -13,5 +13,7 @@
   "item.meatminer.deepslate_cooked_meat_ore": "Deepslate Meat Ore",
   "item.meatminer.end_stone_cooked_meat_ore": "End Stone Meat Ore",
   "item.meatminer.raw_meat_block": "Raw Meat Block",
+  "trim_material.meatminer.meat": "Meat Material",
+  "trim_material.meatminer.cooked_meat": "Cooked Meat Material",
   "item.meatminer.cooked_meat_block": "Meat Block"
 }
