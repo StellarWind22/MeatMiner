@@ -22,21 +22,20 @@ public class MeatBlock extends Block implements MeatLike {
     }
 
     public MeatBlock(Properties properties, Optional<RegistrySupplier<Block>> cookedVersion) {
-        super(properties);
-        this.drips = true;
-        this.cookedVersion = cookedVersion;
+        this(properties, true, cookedVersion);
     }
 
     public MeatBlock(Properties properties, boolean drips) {
-        super(properties);
-        this.drips = drips;
-        this.cookedVersion = Optional.empty();
+        this(properties, drips, Optional.empty());
     }
 
     public MeatBlock(Properties properties) {
-        super(properties);
-        this.drips = true;
-        this.cookedVersion = Optional.empty();
+        this(properties, true, Optional.empty());
+    }
+
+    @Override
+    public void animateTick(BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource) {
+        this.dripAnimation(blockState, level, blockPos, randomSource);
     }
 
     public boolean drips() {
@@ -49,10 +48,5 @@ public class MeatBlock extends Block implements MeatLike {
 
     public Optional<RegistrySupplier<Block>> cookedVersion() {
         return this.cookedVersion;
-    }
-
-    @Override
-    public void animateTick(BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource) {
-        this.dripAnimation(blockState, level, blockPos, randomSource);
     }
 }
