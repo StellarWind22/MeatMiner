@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 720,
+  "experience": 1.38,
+  "ingredient": "meatminer:raw_meat_block",
+  "result": {
+    "id": "meatminer:cooked_meat_block"
+  }
+}

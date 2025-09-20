@@ -1,0 +1,7 @@
+{
+    "replace": false,
+    "values": [
+        "meatminer:raw_meat_block",
+        "meatminer:cooked_meat_block"
+    ]
+}

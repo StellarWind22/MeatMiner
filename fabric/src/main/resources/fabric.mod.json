@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "meatminer",
+  "version": "${version}",
+  "name": "MeatMiner",
+  "description": "Ever wanted to make your Minecraft experience worse! With this mod who needs farming when you've got a pickaxe!",
+  "authors": [
+    "StellarWind22"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/meatminer"
+  },
+  "license": "MIT",
+  "icon": "assets/meatminer/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.stellarwind22.meatminer.fabric.init.MeatminerFabric"
+    ]
+  },
+  "mixins": [
+    "meatminer.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.17.2",
+    "minecraft": "~1.21.8",
+    "java": ">=21",
+    "architectury": ">=17.0.8",
+    "fabric-api": "*"
+  }
+}

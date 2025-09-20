@@ -1,0 +1,22 @@
+{
+  "function": "minecraft:set_components",
+  "components": {
+    "minecraft:tool": {
+      "rules": [
+        {
+          "blocks": "#c:mineable/sword",
+          "correct_for_drops": true
+        }
+      ],
+      "can_destroy_blocks_in_creative": true
+    }
+  },
+  "conditions": [
+    {
+      "condition": "minecraft:match_tool",
+      "predicate": {
+        "items": "#c:tools/sword"
+      }
+    }
+  ]
+}

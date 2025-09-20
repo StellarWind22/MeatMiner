@@ -1,0 +1,17 @@
+{
+  "tab.meatminer.main": "Meat Miner",
+  "item.meatminer.raw_meat_nugget": "Raw Meat Nugget",
+  "item.meatminer.raw_meat": "Raw Meat",
+  "item.meatminer.cooked_meat_nugget": "Meat Nugget",
+  "item.meatminer.cooked_meat": "Meat",
+  "item.meatminer.raw_meat_ore": "Raw Meat Ore",
+  "item.meatminer.deepslate_raw_meat_ore": "Deepslate Raw Meat Ore",
+  "item.meatminer.netherrack_raw_meat_ore": "Netherrack Raw Meat Ore",
+  "item.meatminer.netherrack_cooked_meat_ore": "Netherrack Meat Ore",
+  "item.meatminer.end_stone_raw_meat_ore": "End Stone Raw Meat Ore",
+  "item.meatminer.cooked_meat_ore": "Meat Ore",
+  "item.meatminer.deepslate_cooked_meat_ore": "Deepslate Meat Ore",
+  "item.meatminer.end_stone_cooked_meat_ore": "End Stone Meat Ore",
+  "item.meatminer.raw_meat_block": "Raw Meat Block",
+  "item.meatminer.cooked_meat_block": "Meat Block"
+}

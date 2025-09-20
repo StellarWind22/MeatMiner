@@ -1,0 +1,46 @@
+modLoader = "javafml"
+loaderVersion = "[2,)"
+issueTrackerURL = "https://github.com/StellarWind22/MeatMiner/issues"
+license = "MIT"
+logoFile = "meatminer.png"
+
+[[mods]]
+modId = "meatminer"
+version = "${version}"
+displayName = "MeatMiner"
+authors = "StellarWind22"
+description = '''
+Ever wanted to make your Minecraft experience worse! With this mod who needs farming when you've got a pickaxe!
+'''
+#logoFile = ""
+
+[[dependencies.meatminer]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.meatminer]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.6,1.21.8]"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.meatminer]]
+modId = "architectury"
+type = "required"
+versionRange = "[17.0.8,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.meatminer]]
+modId = "midnightlib"
+type = "required"
+versionRange = "[1.7.5+1.21.6,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[mixins]]
+config = "meatminer.mixins.json"

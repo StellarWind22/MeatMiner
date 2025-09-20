@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "meatminer:cooked_meat_block"
+  ],
+  "result": {
+    "id": "meatminer:cooked_meat",
+    "count": 4
+  },
+  "group": "cooked_meat"
+}

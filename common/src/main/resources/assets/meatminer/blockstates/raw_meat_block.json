@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "meatminer:block/raw_meat_block" }
+  }
+}
