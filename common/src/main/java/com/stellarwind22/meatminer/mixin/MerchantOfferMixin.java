@@ -1,10 +1,10 @@
 package com.stellarwind22.meatminer.mixin;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.stellarwind22.meatminer.config.MeatMinerConfig;
 import com.stellarwind22.meatminer.content.MeatMinerItems;
 import com.stellarwind22.meatminer.util.DeferredItem;
-import net.minecraft.client.gui.screens.inventory.MerchantScreen;
-import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.ItemCost;
@@ -19,75 +19,82 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Optional;
 
+@SuppressWarnings("OptionalUsedAsFieldOrParameterType")
 @Mixin(MerchantOffer.class)
 public abstract class MerchantOfferMixin {
 
     @Inject(at = @At("RETURN"), method = "getBaseCostA", cancellable = true)
     public void getBaseCostA(CallbackInfoReturnable<ItemStack> cir) {
-        var stack = cir.getReturnValue();
-        var count = stack.getCount() * MeatMinerConfig.emerald_conversion_rate;
+        if(MeatMinerConfig.modify_trades) {
+            var stack = cir.getReturnValue();
+            var count = stack.getCount();
 
-        if(stack.is(Items.EMERALD)) {
-            cir.setReturnValue(
-                    new ItemStack(
-                            new DeferredItem<>(MeatMinerItems.MEAT),
-                            count
-                    )
-            );
-        }
-        if(stack.is(Items.EMERALD_BLOCK)) {
-            cir.setReturnValue(
-                    new ItemStack(
-                            new DeferredItem<>(MeatMinerItems.MEAT_BLOCK),
-                            count
-                    )
-            );
+            if (stack.is(Items.EMERALD)) {
+                cir.setReturnValue(
+                        new ItemStack(
+                                new DeferredItem<>(MeatMinerItems.MEAT),
+                                count * MeatMinerConfig.emerald_conversion_rate
+                        )
+                );
+            }
+            if (stack.is(Items.EMERALD_BLOCK)) {
+                cir.setReturnValue(
+                        new ItemStack(
+                                new DeferredItem<>(MeatMinerItems.MEAT_BLOCK),
+                                (count * 9) * MeatMinerConfig.emerald_conversion_rate / 4
+                        )
+                );
+            }
         }
     }
 
     @Inject(at = @At("RETURN"), method = "getCostA", cancellable = true)
     public void getCostA(CallbackInfoReturnable<ItemStack> cir) {
-        var stack = cir.getReturnValue();
-        var count = stack.getCount();
+        if(MeatMinerConfig.modify_trades) {
+            var stack = cir.getReturnValue();
+            var count = stack.getCount();
 
-        if(stack.is(Items.EMERALD)) {
-            cir.setReturnValue(
-                    new ItemStack(
-                            new DeferredItem<>(MeatMinerItems.MEAT),
-                            count * MeatMinerConfig.emerald_conversion_rate
-                    )
-            );
-        }
-        if(stack.is(Items.EMERALD_BLOCK)) {
-            cir.setReturnValue(
-                    new ItemStack(
-                            new DeferredItem<>(MeatMinerItems.MEAT_BLOCK),
-                            (count * 9) * MeatMinerConfig.emerald_conversion_rate / 4
-                    )
-            );
+            if (stack.is(Items.EMERALD)) {
+                cir.setReturnValue(
+                        new ItemStack(
+                                new DeferredItem<>(MeatMinerItems.MEAT),
+                                count * MeatMinerConfig.emerald_conversion_rate
+                        )
+                );
+            }
+            if (stack.is(Items.EMERALD_BLOCK)) {
+                cir.setReturnValue(
+                        new ItemStack(
+                                new DeferredItem<>(MeatMinerItems.MEAT_BLOCK),
+                                (count * 9) * MeatMinerConfig.emerald_conversion_rate / 4
+                        )
+                );
+            }
         }
     }
 
     @Inject(at = @At("RETURN"), method = "getCostB", cancellable = true)
     public void getCostB(CallbackInfoReturnable<ItemStack> cir) {
-        var stack = cir.getReturnValue();
-        var count = stack.getCount();
+        if(MeatMinerConfig.modify_trades) {
+            var stack = cir.getReturnValue();
+            var count = stack.getCount();
 
-        if(stack.is(Items.EMERALD)) {
-            cir.setReturnValue(
-                    new ItemStack(
-                            new DeferredItem<>(MeatMinerItems.MEAT),
-                            count * MeatMinerConfig.emerald_conversion_rate
-                    )
-            );
-        }
-        if(stack.is(Items.EMERALD_BLOCK)) {
-            cir.setReturnValue(
-                    new ItemStack(
-                            new DeferredItem<>(MeatMinerItems.MEAT_BLOCK),
-                            (count * 9) * MeatMinerConfig.emerald_conversion_rate / 4
-                    )
-            );
+            if (stack.is(Items.EMERALD)) {
+                cir.setReturnValue(
+                        new ItemStack(
+                                new DeferredItem<>(MeatMinerItems.MEAT),
+                                count * MeatMinerConfig.emerald_conversion_rate
+                        )
+                );
+            }
+            if (stack.is(Items.EMERALD_BLOCK)) {
+                cir.setReturnValue(
+                        new ItemStack(
+                                new DeferredItem<>(MeatMinerItems.MEAT_BLOCK),
+                                (count * 9) * MeatMinerConfig.emerald_conversion_rate / 4
+                        )
+                );
+            }
         }
     }
 
@@ -142,95 +149,72 @@ public abstract class MerchantOfferMixin {
 
     @Inject(at = @At("RETURN"), method = "getResult", cancellable = true)
     public void getResult(CallbackInfoReturnable<ItemStack> cir) {
-        var stack = cir.getReturnValue();
-        var count = stack.getCount();
+        if(MeatMinerConfig.modify_trades) {
+            var stack = cir.getReturnValue();
+            var count = stack.getCount();
 
-        if(stack.is(Items.EMERALD)) {
-            cir.setReturnValue(
-                    new ItemStack(
-                            new DeferredItem<>(MeatMinerItems.MEAT),
-                            count * MeatMinerConfig.emerald_conversion_rate
-                    )
-            );
-        }
-        if(stack.is(Items.EMERALD_BLOCK)) {
-            cir.setReturnValue(
-                    new ItemStack(
-                            new DeferredItem<>(MeatMinerItems.MEAT_BLOCK),
-                            (count * 9) * MeatMinerConfig.emerald_conversion_rate / 4
-                    )
-            );
+            if (stack.is(Items.EMERALD)) {
+                cir.setReturnValue(
+                        new ItemStack(
+                                new DeferredItem<>(MeatMinerItems.MEAT),
+                                count * MeatMinerConfig.emerald_conversion_rate
+                        )
+                );
+            }
+            if (stack.is(Items.EMERALD_BLOCK)) {
+                cir.setReturnValue(
+                        new ItemStack(
+                                new DeferredItem<>(MeatMinerItems.MEAT_BLOCK),
+                                (count * 9) * MeatMinerConfig.emerald_conversion_rate / 4
+                        )
+                );
+            }
         }
     }
 
     @Inject(at = @At("RETURN"), method = "assemble", cancellable = true)
     public void assemble(CallbackInfoReturnable<ItemStack> cir) {
-        var stack = cir.getReturnValue();
-        var count = stack.getCount();
+        if(MeatMinerConfig.modify_trades) {
+            var stack = cir.getReturnValue();
+            var count = stack.getCount();
 
-        if(stack.is(Items.EMERALD)) {
-            cir.setReturnValue(
-                    new ItemStack(
-                            new DeferredItem<>(MeatMinerItems.MEAT),
-                            count * MeatMinerConfig.emerald_conversion_rate
-                    )
-            );
-        }
-        if(stack.is(Items.EMERALD_BLOCK)) {
-            cir.setReturnValue(
-                    new ItemStack(
-                            new DeferredItem<>(MeatMinerItems.MEAT_BLOCK),
-                            (count * 9) * MeatMinerConfig.emerald_conversion_rate / 4
-                    )
-            );
+            if(stack.is(Items.EMERALD)) {
+                cir.setReturnValue(
+                        new ItemStack(
+                                new DeferredItem<>(MeatMinerItems.MEAT),
+                                count * MeatMinerConfig.emerald_conversion_rate
+                        )
+                );
+            }
+            if(stack.is(Items.EMERALD_BLOCK)) {
+                cir.setReturnValue(
+                        new ItemStack(
+                                new DeferredItem<>(MeatMinerItems.MEAT_BLOCK),
+                                (count * 9) * MeatMinerConfig.emerald_conversion_rate / 4
+                        )
+                );
+            }
         }
     }
 
     @Final @Shadow
     private ItemCost baseCostA;
 
-    @Inject(at = @At("RETURN"), method = "satisfiedBy", cancellable = true)
-    public void satisfiedBy(ItemStack itemStack, ItemStack itemStack2, CallbackInfoReturnable<Boolean> cir) {
-        if(itemStack.is(Items.EMERALD) || itemStack.is(Items.EMERALD_BLOCK) || itemStack2.is(Items.EMERALD) || itemStack2.is(Items.EMERALD_BLOCK)) {
-            MerchantOffer self = (MerchantOffer) (Object) this;
+    @Shadow
+    public abstract ItemCost getItemCostA();
 
-            if (self.getItemCostA().test(itemStack) && itemStack.getCount() >= meatminer$getModifiedCostCount(self, this.meatminer$getActualBaseCostA())) {
-                if (self.getItemCostB().isEmpty()) {
-                    cir.setReturnValue(itemStack2.isEmpty());
-                } else {
-                    var costB = self.getItemCostB().get();
-                    cir.setReturnValue(costB.test(itemStack2) && itemStack2.getCount() >= costB.count());
-                }
-            } else {
-                cir.setReturnValue(false);
-            }
-        }
-    }
+    @Final @Shadow
+    private Optional<ItemCost> costB;
+
+    @Shadow
+    public abstract Optional<ItemCost> getItemCostB();
 
     @Unique
-    private int meatminer$getModifiedCostCount(MerchantOffer self, ItemCost itemCost) {
-        int i = itemCost.count();
-        int j = Math.max(0, Mth.floor((float)(i * self.getDemand()) * self.getPriceMultiplier()));
-        return Mth.clamp(i + j + self.getSpecialPriceDiff(), 1, itemCost.itemStack().getMaxStackSize());
-    }
-
-    @Unique
-    private ItemCost meatminer$getActualBaseCostA() {
-        var cost = this.baseCostA;
-        var count = cost.count();
-        var item = cost.item().value();
-        if(item.equals(Items.EMERALD)) {
-            return new ItemCost(
-                    new DeferredItem<>(MeatMinerItems.MEAT),
-                    count * MeatMinerConfig.emerald_conversion_rate
-            );
-        }
-        if(item.equals(Items.EMERALD_BLOCK)) {
-            return new ItemCost(
-                    new DeferredItem<>(MeatMinerItems.MEAT_BLOCK),
-                    (count * 9) * MeatMinerConfig.emerald_conversion_rate / 4
-            );
-        }
-        return cost;
+    @WrapOperation(method = "satisfiedBy", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/trading/ItemCost;test(Lnet/minecraft/world/item/ItemStack;)Z"))
+    private boolean meatminer$satisfiedBy$testWrapper(
+            ItemCost instance, ItemStack itemStack, Operation<Boolean> original
+    ) {
+        ItemCost cost = instance == baseCostA ? this.getItemCostA() : instance == this.costB.orElse(null) ? this.getItemCostB().orElse(instance) : instance;
+        return original.call(cost, itemStack);
     }
 }

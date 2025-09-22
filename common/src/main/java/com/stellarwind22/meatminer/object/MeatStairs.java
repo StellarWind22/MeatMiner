@@ -12,14 +12,14 @@ import net.minecraft.world.level.block.state.properties.*;
 
 import java.util.Optional;
 
-@SuppressWarnings("OptionalUsedAsFieldOrParameterType")
+@SuppressWarnings({"OptionalUsedAsFieldOrParameterType", "unused"})
 public class MeatStairs extends StairBlock implements SimpleWaterloggedBlock, MeatLike {
 
     private final boolean drips;
     private final Optional<RegistrySupplier<Block>> cookedVersion;
 
     public MeatStairs(BlockState blockState, BlockBehaviour.Properties properties, boolean drips, Optional<RegistrySupplier<Block>> cookedVersion) {
-        super(blockState, properties.noOcclusion().dynamicShape());
+        super(blockState, properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(HALF, Half.BOTTOM).setValue(SHAPE, StairsShape.STRAIGHT).setValue(WATERLOGGED, false));
         this.drips = drips;
         this.cookedVersion = cookedVersion;

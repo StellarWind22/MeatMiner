@@ -8,5 +8,5 @@ public class MeatMinerConfig extends MidnightConfig {
     public static boolean modify_trades = true;
 
     @Entry
-    public static int emerald_conversion_rate = 1;
+    public static int emerald_conversion_rate = 2;
 }

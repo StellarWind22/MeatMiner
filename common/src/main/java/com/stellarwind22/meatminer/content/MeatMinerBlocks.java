@@ -25,7 +25,7 @@ public class MeatMinerBlocks {
 
     //Props
     public static final MBlockProps MEAT_PROPS = new MBlockProps().strength(0.5F).isValidSpawn(MBlockProps::always).mapColor(MapColor.TERRACOTTA_RED).sound(SoundType.MUD);
-    public static final MBlockProps COOKED_MEAT_PROPS = new MBlockProps().strength(0.5F).isValidSpawn(MBlockProps::always).mapColor(MapColor.TERRACOTTA_CYAN).sound(SoundType.MUD);
+    public static final MBlockProps COOKED_MEAT_PROPS = new MBlockProps().strength(0.5F).isValidSpawn(MBlockProps::always).mapColor(MapColor.TERRACOTTA_BROWN).sound(SoundType.MUD);
 
     //Raw
     //Pure
@@ -54,7 +54,7 @@ public class MeatMinerBlocks {
 
         MEAT_BLOCK = registerBlock("meat_block", new MBlock(
                 props -> new MeatBlock(props, Optional.of(COOKED_MEAT_BLOCK)),
-                Optional.of(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD))
+                Optional.of(MEAT_PROPS.getCopy())
         ));
 
         MEAT_STAIRS = registerBlock("meat_stairs", new MBlock(
