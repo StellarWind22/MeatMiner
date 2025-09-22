@@ -18,7 +18,7 @@ public interface MeatLike {
 
     Optional<RegistrySupplier<Block>> cookedVersion();
 
-    default void dripAnimation(BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource) {
+    default void dripAnimation(Level level, BlockPos blockPos, RandomSource randomSource) {
         if(this.drips()) {
 
             if (randomSource.nextInt(16) == 0) {

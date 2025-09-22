@@ -1,63 +1,49 @@
 package com.stellarwind22.meatminer.object;
 
-import com.stellarwind22.meatminer.init.MeatMiner;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.level.block.state.properties.*;
 
 import java.util.Optional;
 
 @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
-public class MeatStairs extends StairBlock implements MeatLike {
+public class MeatStairs extends StairBlock implements SimpleWaterloggedBlock, MeatLike {
 
     private final boolean drips;
     private final Optional<RegistrySupplier<Block>> cookedVersion;
 
-    public MeatStairs(BlockState blockState, Properties properties, boolean drips, Optional<RegistrySupplier<Block>> cookedVersion) {
+    public MeatStairs(BlockState blockState, BlockBehaviour.Properties properties, boolean drips, Optional<RegistrySupplier<Block>> cookedVersion) {
         super(blockState, properties);
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(HALF, Half.BOTTOM).setValue(SHAPE, StairsShape.STRAIGHT).setValue(WATERLOGGED, false));
         this.drips = drips;
         this.cookedVersion = cookedVersion;
     }
 
-    public MeatStairs(BlockState blockState, Properties properties, Optional<RegistrySupplier<Block>> cookedVersion) {
+    public MeatStairs(BlockState blockState, BlockBehaviour.Properties properties, Optional<RegistrySupplier<Block>> cookedVersion) {
         this(blockState, properties, true, cookedVersion);
     }
 
-    public MeatStairs(BlockState blockState, boolean drips, Properties properties) {
+    public MeatStairs(BlockState blockState, boolean drips, BlockBehaviour.Properties properties) {
         this(blockState, properties, drips, Optional.empty());
     }
 
-    public MeatStairs(BlockState blockState, Properties properties) {
+    public MeatStairs(BlockState blockState, BlockBehaviour.Properties properties) {
         this(blockState, properties, true, Optional.empty());
     }
 
-    @Override
-    public void onPlace(BlockState newState, Level level, BlockPos pos, BlockState oldState, boolean isMoving) {
-        super.onPlace(newState, level, pos, oldState, isMoving);
-        if (!level.isClientSide()) {
-            var collisionShape = newState.getCollisionShape(level, pos, CollisionContext.empty());
-            var outlineShape = newState.getShape(level, pos, CollisionContext.empty());
-            MeatMiner.LOGGER.info("[meat] placed {} at {} state={} collisionEmpty={} outlineEmpty={}",
-                    this.getClass().getSimpleName(),
-                    pos,
-                    newState,
-                    collisionShape.isEmpty(),
-                    outlineShape.isEmpty()
-            );
-            MeatMiner.LOGGER.info("[meat] collision: {}", collisionShape);
-            MeatMiner.LOGGER.info("[meat] outline: {}", outlineShape);
-        }
+    public boolean useShapeForLightOcclusion(BlockState blockState) {
+        return true;
     }
 
-
     @Override
-    public void animateTick(BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource) {
-        this.dripAnimation(blockState, level, blockPos, randomSource);
+    public void animateTick(BlockState state, Level level, BlockPos blockPos, RandomSource randomSource) {
+        this.dripAnimation(level, blockPos, randomSource);
     }
 
     @Override

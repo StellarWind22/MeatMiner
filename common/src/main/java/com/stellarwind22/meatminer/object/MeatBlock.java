@@ -35,7 +35,7 @@ public class MeatBlock extends Block implements MeatLike {
 
     @Override
     public void animateTick(BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource) {
-        this.dripAnimation(blockState, level, blockPos, randomSource);
+        this.dripAnimation(level, blockPos, randomSource);
     }
 
     public boolean drips() {

@@ -23,32 +23,20 @@ public class MeatSlab extends SlabBlock implements MeatLike {
     }
 
     public MeatSlab(Properties properties, Optional<RegistrySupplier<Block>> cookedVersion) {
-        this(
-                properties,
-                true,
-                cookedVersion
-        );
+        this(properties,true, cookedVersion);
     }
 
     public MeatSlab(Properties properties, boolean drips) {
-        this(
-                properties,
-                drips,
-                Optional.empty()
-        );
+        this(properties, drips,Optional.empty());
     }
 
     public MeatSlab(Properties properties) {
-        this(
-                properties,
-                true,
-                Optional.empty()
-        );
+        this(properties,true, Optional.empty());
     }
 
     @Override
     public void animateTick(BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource) {
-        this.dripAnimation(blockState, level, blockPos, randomSource);
+        this.dripAnimation(level, blockPos, randomSource);
     }
 
     @Override
