@@ -112,6 +112,8 @@ public class MBlockProps {
 
     public static boolean always(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, EntityType<?> entityType) {return true;}
     public static boolean always(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) { return true; }
+    public static boolean never(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, EntityType<?> entityType) {return false;}
+    public static boolean never(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) { return false; }
 
     public MBlockProps mapColor(DyeColor dyeColor) {
         this.mapColor = (blockState) -> dyeColor.getMapColor();

@@ -2,6 +2,7 @@ package com.stellarwind22.meatminer.object;
 
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -31,6 +32,18 @@ public class MeatBlock extends Block implements MeatLike {
 
     public MeatBlock(Properties properties) {
         this(properties, true, Optional.empty());
+    }
+
+    public void onPlace(BlockState newState, Level level, BlockPos blockPos, BlockState oldState, boolean bl) {
+        super.onPlace(newState, level, blockPos, oldState, bl);
+        handleLava(level, blockPos.offset(1,1,1));
+    }
+
+    public void handleLava(Level level, BlockPos blockPos) {
+        var state = level.getFluidState(blockPos);
+        if(state.is(FluidTags.LAVA)) {
+            level.scheduleTick(blockPos, state.getType(), state.getType().getTickDelay(level));
+        }
     }
 
     @Override

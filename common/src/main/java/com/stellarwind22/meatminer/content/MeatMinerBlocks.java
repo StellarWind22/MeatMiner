@@ -14,7 +14,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 
@@ -25,8 +24,8 @@ public class MeatMinerBlocks {
     private static DeferredRegister<Block> BLOCKS;
 
     //Props
-    public static final MBlockProps MEAT_PROPS = new MBlockProps().strength(0.5F).mapColor(MapColor.TERRACOTTA_RED).isValidSpawn(MBlockProps::always).isRedstoneConductor(MBlockProps::always).isViewBlocking(MBlockProps::always).isSuffocating(MBlockProps::always).sound(SoundType.MUD);
-    public static final MBlockProps COOKED_MEAT_PROPS = new MBlockProps().strength(0.5F).mapColor(MapColor.TERRACOTTA_CYAN).isValidSpawn(MBlockProps::always).isRedstoneConductor(MBlockProps::always).isViewBlocking(MBlockProps::always).isSuffocating(MBlockProps::always).sound(SoundType.MUD);
+    public static final MBlockProps MEAT_PROPS = new MBlockProps().strength(0.5F).isValidSpawn(MBlockProps::always).mapColor(MapColor.TERRACOTTA_RED).sound(SoundType.MUD);
+    public static final MBlockProps COOKED_MEAT_PROPS = new MBlockProps().strength(0.5F).isValidSpawn(MBlockProps::always).mapColor(MapColor.TERRACOTTA_CYAN).sound(SoundType.MUD);
 
     //Raw
     //Pure
@@ -55,20 +54,14 @@ public class MeatMinerBlocks {
     public static void init() {
         BLOCKS = DeferredRegister.create(MeatMiner.MOD_ID, Registries.BLOCK);
 
-        // temporary debug registration
-        TEST_MUD_STAIRS = registerBlock("test_mud_stairs", new MBlock(
-                props -> new StairBlock(Blocks.MUD.defaultBlockState(), props),
-                Optional.of(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD))
-        ));
-
         MEAT_BLOCK = registerBlock("meat_block", new MBlock(
                 props -> new MeatBlock(props, Optional.of(COOKED_MEAT_BLOCK)),
                 Optional.of(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD))
         ));
 
         MEAT_STAIRS = registerBlock("meat_stairs", new MBlock(
-                props -> new MeatStairs(MEAT_BLOCK.get().defaultBlockState(), props, Optional.of(COOKED_MEAT_STAIRS)),
-                Optional.of(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD))
+                props -> new MeatStairs(Blocks.STONE.defaultBlockState(), props, Optional.of(COOKED_MEAT_STAIRS)),
+                Optional.of(MEAT_PROPS.getCopy())
         ));
 
         MEAT_SLAB = registerBlock("meat_slab", new MBlock(

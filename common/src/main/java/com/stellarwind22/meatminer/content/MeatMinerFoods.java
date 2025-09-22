@@ -1,6 +1,7 @@
 package com.stellarwind22.meatminer.content;
 
 import com.stellarwind22.meatminer.init.MeatMiner;
+import com.stellarwind22.meatminer.object.MReplaceItem;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.registries.Registries;
@@ -15,6 +16,8 @@ import net.minecraft.world.item.consume_effects.ConsumeEffect;
 public class MeatMinerFoods {
 
     private static DeferredRegister<ConsumeEffect.Type<?>> CONSUME_EFFECT_TYPE;
+
+    public static RegistrySupplier<ConsumeEffect.Type<MReplaceItem>> MEAT_BLOCK_CONSUME_TYPE;
 
     //Nugget
     public static FoodProperties MEAT_NUGGET;

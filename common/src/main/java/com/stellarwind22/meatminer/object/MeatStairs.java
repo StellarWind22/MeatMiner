@@ -19,7 +19,7 @@ public class MeatStairs extends StairBlock implements SimpleWaterloggedBlock, Me
     private final Optional<RegistrySupplier<Block>> cookedVersion;
 
     public MeatStairs(BlockState blockState, BlockBehaviour.Properties properties, boolean drips, Optional<RegistrySupplier<Block>> cookedVersion) {
-        super(blockState, properties);
+        super(blockState, properties.noOcclusion().dynamicShape());
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(HALF, Half.BOTTOM).setValue(SHAPE, StairsShape.STRAIGHT).setValue(WATERLOGGED, false));
         this.drips = drips;
         this.cookedVersion = cookedVersion;
