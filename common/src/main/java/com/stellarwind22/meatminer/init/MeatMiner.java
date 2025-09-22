@@ -1,18 +1,13 @@
 package com.stellarwind22.meatminer.init;
 
 import com.stellarwind22.meatminer.content.*;
-import com.stellarwind22.meatminer.util.MFluidInteraction;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.material.FluidState;
-
-import java.util.ArrayList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MeatMiner {
 
     public static final String MOD_ID = "meatminer";
-
-    public static final ArrayList<MFluidInteraction> fluidInteractions = new ArrayList<>();
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     public static void init() {
 
@@ -22,13 +17,5 @@ public class MeatMiner {
         MeatMinerBlocks.init();
         MeatMinerFoods.init();
         MeatMinerItems.init();
-    }
-
-    public static void registerFluidInteraction(MFluidInteraction interaction) {
-        fluidInteractions.add(interaction);
-    }
-
-    public static void invokeFluidInteractions(Level level, BlockPos source, BlockPos target, FluidState fluidState) {
-        fluidInteractions.forEach(interaction -> interaction.interact(level, source, target, fluidState));
     }
 }

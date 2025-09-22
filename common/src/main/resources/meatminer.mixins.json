@@ -6,7 +6,8 @@
   "client": [
   ],
   "mixins": [
-    "MerchantOfferMixin"
+    "MerchantOfferMixin",
+    "FlowingFluidMixin"
   ],
   "injectors": {
     "defaultRequire": 1

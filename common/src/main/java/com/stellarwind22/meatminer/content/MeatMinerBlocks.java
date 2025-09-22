@@ -2,7 +2,6 @@ package com.stellarwind22.meatminer.content;
 
 import com.stellarwind22.meatminer.init.MeatMiner;
 import com.stellarwind22.meatminer.object.MeatBlock;
-import com.stellarwind22.meatminer.object.MeatLike;
 import com.stellarwind22.meatminer.object.MeatSlab;
 import com.stellarwind22.meatminer.object.MeatStairs;
 import com.stellarwind22.meatminer.util.MBlock;
@@ -15,6 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 
@@ -50,17 +50,25 @@ public class MeatMinerBlocks {
     public static RegistrySupplier<Block> NETHERRACK_COOKED_MEAT_ORE;
     public static RegistrySupplier<Block> END_STONE_COOKED_MEAT_ORE;
 
+    public static RegistrySupplier<Block> TEST_MUD_STAIRS;
+
     public static void init() {
         BLOCKS = DeferredRegister.create(MeatMiner.MOD_ID, Registries.BLOCK);
 
+        // temporary debug registration
+        TEST_MUD_STAIRS = registerBlock("test_mud_stairs", new MBlock(
+                props -> new StairBlock(Blocks.MUD.defaultBlockState(), props),
+                Optional.of(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD))
+        ));
+
         MEAT_BLOCK = registerBlock("meat_block", new MBlock(
                 props -> new MeatBlock(props, Optional.of(COOKED_MEAT_BLOCK)),
-                Optional.of(MEAT_PROPS.getCopy())
+                Optional.of(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD))
         ));
 
         MEAT_STAIRS = registerBlock("meat_stairs", new MBlock(
                 props -> new MeatStairs(MEAT_BLOCK.get().defaultBlockState(), props, Optional.of(COOKED_MEAT_STAIRS)),
-                Optional.of(MEAT_PROPS.getCopy())
+                Optional.of(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD))
         ));
 
         MEAT_SLAB = registerBlock("meat_slab", new MBlock(
@@ -122,16 +130,6 @@ public class MeatMinerBlocks {
                 props -> new MeatBlock(props, false),
                 Optional.of(BlockBehaviour.Properties.ofFullCopy(Blocks.END_STONE))
         ));
-
-        MeatMiner.registerFluidInteraction(((level, source, target, fluidState) -> {
-            if(level.getBlockState(source).getBlock().equals(Blocks.LAVA)) {
-                if(level.getBlockState(target).getBlock() instanceof MeatLike meatLike) {
-                    if(meatLike.isRaw()) {
-                        meatLike.cookedVersion().ifPresent(cVersion -> level.setBlockAndUpdate(target, cVersion.get().defaultBlockState()));
-                    }
-                }
-            }
-        }));
 
         BLOCKS.register();
     }

@@ -1,8 +1,12 @@
 package com.stellarwind22.meatminer.object;
 
 import dev.architectury.registry.registries.RegistrySupplier;
+import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.Optional;
 
@@ -40,6 +44,11 @@ public class MeatSlab extends SlabBlock implements MeatLike {
                 true,
                 Optional.empty()
         );
+    }
+
+    @Override
+    public void animateTick(BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource) {
+        this.dripAnimation(blockState, level, blockPos, randomSource);
     }
 
     @Override

@@ -27,8 +27,8 @@ public class MBlockProps {
     boolean hasCollision = true;
     public SoundType soundType;
     public ToIntFunction<BlockState> lightEmission;
-    public float explosionResistance;
-    public float destroyTime;
+    public float explosionResistance = 0;
+    public float destroyTime = 0;
     public boolean requiresCorrectToolForDrops;
     public boolean isRandomlyTicking;
     public float friction;
@@ -70,29 +70,42 @@ public class MBlockProps {
         this.emissiveRendering = (blockState, blockGetter, blockPos) -> false;
         this.requiredFeatures = List.of(FeatureFlags.VANILLA);
     }
-    
+
     public BlockBehaviour.Properties getCopy() {
         BlockBehaviour.Properties copy = BlockBehaviour.Properties.of();
 
-        copy.strength(this.destroyTime, this.explosionResistance);
+        // Basic properties
         copy.mapColor(this.mapColor);
-        if(!this.hasCollision) copy.noCollission();
         copy.sound(this.soundType);
         copy.lightLevel(this.lightEmission);
         copy.friction(this.friction);
         copy.speedFactor(this.speedFactor);
         copy.jumpFactor(this.jumpFactor);
-        if(!this.canOcclude) copy.noOcclusion();
         copy.pushReaction(this.pushReaction);
-        if(!this.spawnTerrainParticles) copy.noTerrainParticles();
         copy.instrument(this.instrument);
+        copy.requiredFeatures(this.requiredFeatures.toArray(new FeatureFlag[0]));
+        copy.strength(this.destroyTime, this.explosionResistance);
+
+        // Collision / occlusion
+        if (!this.hasCollision) copy.noCollission();
+        if (!this.canOcclude) copy.noOcclusion();
+        if (this.forceSolidOn) copy.forceSolidOn();
+
+        // Special flags
+        if (this.requiresCorrectToolForDrops) copy.requiresCorrectToolForDrops();
+        if (this.isRandomlyTicking) copy.randomTicks();
+        if (this.isAir) copy.air();
+        if (this.ignitedByLava) copy.ignitedByLava();
+        if (this.dynamicShape) copy.dynamicShape();
+
+        // Terrain / visuals
+        if (!this.spawnTerrainParticles) copy.noTerrainParticles();
         copy.isValidSpawn(this.isValidSpawn);
         copy.isRedstoneConductor(this.isRedstoneConductor);
         copy.isSuffocating(this.isSuffocating);
         copy.isViewBlocking(this.isViewBlocking);
-        this.hasPostProcess(this.hasPostProcess);
+        copy.hasPostProcess(this.hasPostProcess);
         copy.emissiveRendering(this.emissiveRendering);
-        copy.requiredFeatures(this.requiredFeatures.toArray(new FeatureFlag[]{}));
 
         return copy;
     }
