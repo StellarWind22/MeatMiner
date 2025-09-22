@@ -3,6 +3,7 @@ package com.stellarwind22.meatminer.mixin;
 import com.stellarwind22.meatminer.config.MeatMinerConfig;
 import com.stellarwind22.meatminer.content.MeatMinerItems;
 import com.stellarwind22.meatminer.util.DeferredItem;
+import net.minecraft.client.gui.screens.inventory.MerchantScreen;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;

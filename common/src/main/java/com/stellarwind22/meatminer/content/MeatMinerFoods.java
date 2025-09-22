@@ -37,6 +37,8 @@ public class MeatMinerFoods {
 
         CONSUME_EFFECT_TYPE = DeferredRegister.create(MeatMiner.MOD_ID, Registries.CONSUME_EFFECT_TYPE);
 
+        MEAT_BLOCK_CONSUME_TYPE = registerConsumeEffect("meat_replace_item", new ConsumeEffect.Type<>(MReplaceItem.CODEC, MReplaceItem.STREAM_CODEC));
+
         MEAT_NUGGET = new FoodProperties(1, 0.1f, false);
         COOKED_MEAT_NUGGET = new FoodProperties(2, 0.2f, false);
 

@@ -49,8 +49,6 @@ public class MeatMinerBlocks {
     public static RegistrySupplier<Block> NETHERRACK_COOKED_MEAT_ORE;
     public static RegistrySupplier<Block> END_STONE_COOKED_MEAT_ORE;
 
-    public static RegistrySupplier<Block> TEST_MUD_STAIRS;
-
     public static void init() {
         BLOCKS = DeferredRegister.create(MeatMiner.MOD_ID, Registries.BLOCK);
 
