@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecraft:item/iron_chestplate",
+    "layer1": "cooked_meatminer:trims/items/chestplate_trim_cooked_meat"
+  }
+}

@@ -1,4 +1,7 @@
 {
+  "meatminer.midnightconfig.title": "MeatMiner Config",
+  "meatminer.midnightconfig.modify_trades": "Modify Trades",
+  "meatminer.midnightconfig.emerald_conversion_rate": "Emerald to Meat Rate",
   "tab.meatminer.main": "Meat Miner",
   "item.meatminer.meat_nugget": "Raw Meat Nugget",
   "item.meatminer.meat": "Raw Meat",
