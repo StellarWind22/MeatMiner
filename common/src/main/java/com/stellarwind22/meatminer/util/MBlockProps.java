@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.function.ToIntFunction;
 
+@SuppressWarnings("unused")
 public class MBlockProps {
 
     public Function<BlockState, MapColor> mapColor = (blockState) -> MapColor.NONE;
@@ -87,7 +88,7 @@ public class MBlockProps {
         copy.strength(this.destroyTime, this.explosionResistance);
 
         // Collision / occlusion
-        if (!this.hasCollision) copy.noCollission();
+        if (!this.hasCollision) copy.noCollision();
         if (!this.canOcclude) copy.noOcclusion();
         if (this.forceSolidOn) copy.forceSolidOn();
 
@@ -130,7 +131,7 @@ public class MBlockProps {
         return this;
     }
 
-    public MBlockProps noCollission() {
+    public MBlockProps noCollision() {
         this.hasCollision = false;
         this.canOcclude = false;
         return this;
