@@ -1,7 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "minecraft:item/netherite_chestplate",
-    "layer1": "minecraft:trims/items/chestplate_trim_cooked_meat"
+  "model": {
+    "type": "minecraft:model",
+    "model": "meatminer:item/netherite_chestplate_cooked_meat_trim"
   }
 }

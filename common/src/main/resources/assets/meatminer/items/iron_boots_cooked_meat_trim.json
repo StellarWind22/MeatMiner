@@ -1,7 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "minecraft:item/iron_boots",
-    "layer1": "cooked_meatminer:trims/items/boots_trim_cooked_meat"
+  "model": {
+    "type": "minecraft:model",
+    "model": "meatminer:item/iron_boots_cooked_meat_trim"
   }
 }
