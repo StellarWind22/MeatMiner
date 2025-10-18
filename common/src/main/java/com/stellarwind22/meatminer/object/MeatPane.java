@@ -22,6 +22,7 @@ public class MeatPane extends IronBarsBlock implements MeatLike {
         this(properties, false, cookedVersion);
     }
 
+    @SuppressWarnings("unused")
     public MeatPane(Properties properties, boolean drips) {
         this(properties, drips, Optional.empty());
     }
