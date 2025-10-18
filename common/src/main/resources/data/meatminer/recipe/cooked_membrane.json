@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ooo",
+    "ooo"
+  ],
+  "key": {
+    "o": "meatminer:cooked_meat_nugget"
+  },
+  "result": {
+    "id": "meatminer:cooked_membrane",
+    "count": 2
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ooo",
+    "ooo"
+  ],
+  "key": {
+    "o": "meatminer:meat_nugget"
+  },
+  "result": {
+    "id": "meatminer:membrane",
+    "count": 2
+  }
+}

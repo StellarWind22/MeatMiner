@@ -1,11 +1,12 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    "meatminer:cooked_meat"
+    "meatminer:cooked_membrane",
+    "meatminer:cooked_membrane"
   ],
   "result": {
     "id": "meatminer:cooked_meat_nugget",
-    "count": 4
+    "count": 6
   },
   "group": "cooked_meat_nugget"
 }
