@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "cobblemeatminer:cobblemeat_slab"
+          "name": "meatminer:cobblemeat_slab"
         }
       ]
     }

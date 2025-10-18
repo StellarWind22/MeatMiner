@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "cobblemeatminer:cooked_cobblemeat_stairs"
+          "name": "meatminer:cooked_cobblemeat_stairs"
         }
       ]
     }
