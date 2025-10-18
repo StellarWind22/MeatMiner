@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "meatminer:block/cooked_cobblemeat",
+    "side": "meatminer:block/cooked_cobblemeat",
+    "top": "meatminer:block/cooked_cobblemeat"
+  }
+}

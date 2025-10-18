@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "meatminer:block/cobblemeat_slab"
+    },
+    "type=double": {
+      "model": "meatminer:block/cobblemeat"
+    },
+    "type=top": {
+      "model": "meatminer:block/cobblemeat_slab_top"
+    }
+  }
+}

@@ -32,6 +32,9 @@ public class MeatMinerBlocks {
     public static RegistrySupplier<Block> MEAT_BLOCK;
     public static RegistrySupplier<Block> MEAT_STAIRS;
     public static RegistrySupplier<Block> MEAT_SLAB;
+    public static RegistrySupplier<Block> COBBLEMEAT_BLOCK;
+    public static RegistrySupplier<Block> COBBLEMEAT_STAIRS;
+    public static RegistrySupplier<Block> COBBLEMEAT_SLAB;
     //Ores
     public static RegistrySupplier<Block> MEAT_ORE;
     public static RegistrySupplier<Block> DEEPSLATE_MEAT_ORE;
@@ -43,6 +46,9 @@ public class MeatMinerBlocks {
     public static RegistrySupplier<Block> COOKED_MEAT_BLOCK;
     public static RegistrySupplier<Block> COOKED_MEAT_STAIRS;
     public static RegistrySupplier<Block> COOKED_MEAT_SLAB;
+    public static RegistrySupplier<Block> COOKED_COBBLEMEAT_BLOCK;
+    public static RegistrySupplier<Block> COOKED_COBBLEMEAT_STAIRS;
+    public static RegistrySupplier<Block> COOKED_COBBLEMEAT_SLAB;
     //Ores
     public static RegistrySupplier<Block> COOKED_MEAT_ORE;
     public static RegistrySupplier<Block> DEEPSLATE_COOKED_MEAT_ORE;
@@ -64,6 +70,21 @@ public class MeatMinerBlocks {
 
         MEAT_SLAB = registerBlock("meat_slab", new MBlock(
                 props -> new MeatSlab(props, Optional.of(COOKED_MEAT_SLAB)),
+                Optional.of(MEAT_PROPS.getCopy())
+        ));
+
+        COBBLEMEAT_BLOCK = registerBlock("cobblemeat", new MBlock(
+                props -> new MeatBlock(props, Optional.of(COOKED_COBBLEMEAT_BLOCK)),
+                Optional.of(MEAT_PROPS.getCopy())
+        ));
+
+        COBBLEMEAT_STAIRS = registerBlock("cobblemeat_stairs", new MBlock(
+                props -> new MeatStairs(Blocks.STONE.defaultBlockState(), props, Optional.of(COOKED_COBBLEMEAT_STAIRS)),
+                Optional.of(MEAT_PROPS.getCopy())
+        ));
+
+        COBBLEMEAT_SLAB = registerBlock("cobblemeat_slab", new MBlock(
+                props -> new MeatSlab(props, Optional.of(COOKED_COBBLEMEAT_SLAB)),
                 Optional.of(MEAT_PROPS.getCopy())
         ));
 
@@ -100,6 +121,21 @@ public class MeatMinerBlocks {
         COOKED_MEAT_SLAB = registerBlock("cooked_meat_slab", new MBlock(
                 MeatSlab::new,
                 Optional.of(COOKED_MEAT_PROPS.getCopy())
+        ));
+
+        COOKED_COBBLEMEAT_BLOCK = registerBlock("cooked_cobblemeat", new MBlock(
+                MeatBlock::new,
+                Optional.of(MEAT_PROPS.getCopy())
+        ));
+
+        COOKED_COBBLEMEAT_STAIRS = registerBlock("cooked_cobblemeat_stairs", new MBlock(
+                props -> new MeatStairs(Blocks.STONE.defaultBlockState(), props),
+                Optional.of(MEAT_PROPS.getCopy())
+        ));
+
+        COOKED_COBBLEMEAT_SLAB = registerBlock("cooked_cobblemeat_slab", new MBlock(
+                MeatSlab::new,
+                Optional.of(MEAT_PROPS.getCopy())
         ));
 
         COOKED_MEAT_ORE = registerBlock("cooked_meat_ore", new MBlock(

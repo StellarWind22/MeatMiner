@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "meatminer:block/cooked_cobblemeat_slab"
+    },
+    "type=double": {
+      "model": "meatminer:block/cooked_cobblemeat"
+    },
+    "type=top": {
+      "model": "meatminer:block/cooked_cobblemeat_slab_top"
+    }
+  }
+}
