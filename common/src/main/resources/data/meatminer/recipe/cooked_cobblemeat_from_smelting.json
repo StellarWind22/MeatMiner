@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 720,
+  "experience": 1.38,
+  "ingredient": "meatminer:cobblemeat",
+  "result": {
+    "id": "meatminer:cooked_cobblemeat"
+  }
+}

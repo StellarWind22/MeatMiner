@@ -2,6 +2,7 @@ package com.stellarwind22.meatminer.content;
 
 import com.stellarwind22.meatminer.init.MeatMiner;
 import com.stellarwind22.meatminer.object.MeatBlock;
+import com.stellarwind22.meatminer.object.MeatPane;
 import com.stellarwind22.meatminer.object.MeatSlab;
 import com.stellarwind22.meatminer.object.MeatStairs;
 import com.stellarwind22.meatminer.util.MBlock;
@@ -35,6 +36,7 @@ public class MeatMinerBlocks {
     public static RegistrySupplier<Block> COBBLEMEAT_BLOCK;
     public static RegistrySupplier<Block> COBBLEMEAT_STAIRS;
     public static RegistrySupplier<Block> COBBLEMEAT_SLAB;
+    public static RegistrySupplier<Block> MEMBRANE;
     //Ores
     public static RegistrySupplier<Block> MEAT_ORE;
     public static RegistrySupplier<Block> DEEPSLATE_MEAT_ORE;
@@ -49,6 +51,7 @@ public class MeatMinerBlocks {
     public static RegistrySupplier<Block> COOKED_COBBLEMEAT_BLOCK;
     public static RegistrySupplier<Block> COOKED_COBBLEMEAT_STAIRS;
     public static RegistrySupplier<Block> COOKED_COBBLEMEAT_SLAB;
+    public static RegistrySupplier<Block> COOKED_MEMBRANE;
     //Ores
     public static RegistrySupplier<Block> COOKED_MEAT_ORE;
     public static RegistrySupplier<Block> DEEPSLATE_COOKED_MEAT_ORE;
@@ -88,6 +91,10 @@ public class MeatMinerBlocks {
                 Optional.of(MEAT_PROPS.getCopy())
         ));
 
+        MEMBRANE = registerBlock("membrane", new MBlock(
+                props-> new MeatPane(props, Optional.of(COOKED_MEMBRANE)),
+                Optional.of(MEAT_PROPS.getCopy())));
+
         MEAT_ORE = registerBlock("meat_ore", new MBlock(
                 props -> new MeatBlock(props, false, Optional.of(COOKED_MEAT_ORE)),
                 Optional.of(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE))
@@ -118,6 +125,8 @@ public class MeatMinerBlocks {
                 Optional.of(COOKED_MEAT_PROPS.getCopy())
         ));
 
+
+
         COOKED_MEAT_SLAB = registerBlock("cooked_meat_slab", new MBlock(
                 MeatSlab::new,
                 Optional.of(COOKED_MEAT_PROPS.getCopy())
@@ -125,18 +134,22 @@ public class MeatMinerBlocks {
 
         COOKED_COBBLEMEAT_BLOCK = registerBlock("cooked_cobblemeat", new MBlock(
                 MeatBlock::new,
-                Optional.of(MEAT_PROPS.getCopy())
+                Optional.of(COOKED_MEAT_PROPS.getCopy())
         ));
 
         COOKED_COBBLEMEAT_STAIRS = registerBlock("cooked_cobblemeat_stairs", new MBlock(
                 props -> new MeatStairs(Blocks.STONE.defaultBlockState(), props),
-                Optional.of(MEAT_PROPS.getCopy())
+                Optional.of(COOKED_MEAT_PROPS.getCopy())
         ));
 
         COOKED_COBBLEMEAT_SLAB = registerBlock("cooked_cobblemeat_slab", new MBlock(
                 MeatSlab::new,
-                Optional.of(MEAT_PROPS.getCopy())
+                Optional.of(COOKED_MEAT_PROPS.getCopy())
         ));
+
+        COOKED_MEMBRANE = registerBlock("cooked_membrane", new MBlock(
+                MeatPane::new,
+                Optional.of(COOKED_MEAT_PROPS.getCopy())));
 
         COOKED_MEAT_ORE = registerBlock("cooked_meat_ore", new MBlock(
                 props -> new MeatBlock(props, false),

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 2160,
+  "experience": 1.38,
+  "ingredient": "meatminer:cobblemeat",
+  "result": {
+    "id": "meatminer:cooked_cobblemeat"
+  }
+}

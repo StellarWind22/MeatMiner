@@ -1,8 +1,0 @@
-{
-    "replace":false,
-    "values": [
-        "meatminer:meat_block",
-        "meatminer:cooked_meat_block",
-        "minecraft:stone"
-    ]
-}

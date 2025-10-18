@@ -35,6 +35,7 @@ public class MeatMinerItems {
     public static RegistrySupplier<BlockItem> COBBLEMEAT_BLOCK;
     public static RegistrySupplier<BlockItem> COBBLEMEAT_STAIRS;
     public static RegistrySupplier<BlockItem> COBBLEMEAT_SLAB;
+    public static RegistrySupplier<BlockItem> MEMBRANE;
     //Ore
     public static RegistrySupplier<BlockItem> MEAT_ORE;
     public static RegistrySupplier<BlockItem> DEEPSLATE_MEAT_ORE;
@@ -51,6 +52,7 @@ public class MeatMinerItems {
     public static RegistrySupplier<BlockItem> COOKED_COBBLEMEAT_BLOCK;
     public static RegistrySupplier<BlockItem> COOKED_COBBLEMEAT_STAIRS;
     public static RegistrySupplier<BlockItem> COOKED_COBBLEMEAT_SLAB;
+    public static RegistrySupplier<BlockItem> COOKED_MEMBRANE;
     //Ore
     public static RegistrySupplier<BlockItem> COOKED_MEAT_ORE;
     public static RegistrySupplier<BlockItem> DEEPSLATE_COOKED_MEAT_ORE;
@@ -73,6 +75,7 @@ public class MeatMinerItems {
         COBBLEMEAT_BLOCK = registerItem("cobblemeat", props -> new BlockItem(MeatMinerBlocks.COBBLEMEAT_BLOCK.get(),props.food(MeatMinerFoods.MEAT_BLOCK, MeatMinerFoods.MEAT_BLOCK_CONSUMABLE)));
         COBBLEMEAT_STAIRS = registerItem("cobblemeat_stairs", props -> new BlockItem(MeatMinerBlocks.COBBLEMEAT_STAIRS.get(), props.food(MeatMinerFoods.MEAT_BLOCK, MeatMinerFoods.MEAT_BLOCK_CONSUMABLE)));
         COBBLEMEAT_SLAB = registerItem("cobblemeat_slab", props -> new BlockItem(MeatMinerBlocks.COBBLEMEAT_SLAB.get(), props.food(MeatMinerFoods.MEAT_BLOCK, MeatMinerFoods.MEAT_BLOCK_CONSUMABLE)));
+        MEMBRANE = registerItem("membrane", props -> new BlockItem(MeatMinerBlocks.MEMBRANE.get(), props.food(MeatMinerFoods.MEAT)));
         //Ore
         MEAT_ORE = registerItem("meat_ore", props -> new BlockItem(MeatMinerBlocks.MEAT_ORE.get(), props));
         DEEPSLATE_MEAT_ORE = registerItem("deepslate_meat_ore", props -> new BlockItem(MeatMinerBlocks.DEEPSLATE_MEAT_ORE.get(), props));
@@ -89,6 +92,7 @@ public class MeatMinerItems {
         COOKED_COBBLEMEAT_BLOCK = registerItem("cooked_cobblemeat", props -> new BlockItem(MeatMinerBlocks.COOKED_COBBLEMEAT_BLOCK.get(), props.food(MeatMinerFoods.COOKED_MEAT_BLOCK, MeatMinerFoods.MEAT_BLOCK_CONSUMABLE)));
         COOKED_COBBLEMEAT_STAIRS = registerItem("cooked_cobblemeat_stairs", props -> new BlockItem(MeatMinerBlocks.COOKED_COBBLEMEAT_STAIRS.get(), props.food(MeatMinerFoods.COOKED_MEAT_BLOCK, MeatMinerFoods.MEAT_BLOCK_CONSUMABLE)));
         COOKED_COBBLEMEAT_SLAB = registerItem("cooked_cobblemeat_slab", props -> new BlockItem(MeatMinerBlocks.COOKED_COBBLEMEAT_SLAB.get(), props.food(MeatMinerFoods.COOKED_MEAT_BLOCK, MeatMinerFoods.MEAT_BLOCK_CONSUMABLE)));
+        COOKED_MEMBRANE = registerItem("cooked_membrane", props -> new BlockItem(MeatMinerBlocks.COOKED_MEMBRANE.get(), props.food(MeatMinerFoods.COOKED_MEAT)));
         //Ore
         COOKED_MEAT_ORE = registerItem("cooked_meat_ore", props -> new BlockItem(MeatMinerBlocks.COOKED_MEAT_ORE.get(), props));
         DEEPSLATE_COOKED_MEAT_ORE = registerItem("deepslate_cooked_meat_ore", props -> new BlockItem(MeatMinerBlocks.DEEPSLATE_COOKED_MEAT_ORE.get(), props));
