@@ -8,6 +8,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.loading.FMLLoader;
 
@@ -15,10 +16,6 @@ import net.neoforged.fml.loading.FMLLoader;
 public final class MeatMinerNeoForge {
     public MeatMinerNeoForge() {
         MeatMiner.init();
-
-        if(FMLLoader.getCurrent().getDist() == Dist.CLIENT) {
-            MeatMinerClient.init();
-        }
 
         MeatMiner.LOGGER.info("MeatMiner initialized!");
     }
@@ -29,6 +26,13 @@ public final class MeatMinerNeoForge {
         @SubscribeEvent
         public static void setup(FMLCommonSetupEvent event) {
             MidnightConfig.init(MeatMiner.MOD_ID, MeatMinerConfig.class);
+        }
+
+        @SubscribeEvent
+        public static void client(FMLClientSetupEvent event) {
+            if(FMLLoader.getCurrent().getDist() == Dist.CLIENT) {
+                MeatMinerClient.init();
+            }
         }
     }
 }

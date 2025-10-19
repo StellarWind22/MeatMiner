@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_features",
-  "biomes": "minecraft:plains",
-  "features": "meatminer:ore_ruby",
+  "biomes": "#meatminer:all",
+  "features": "meatminer:ore_meat",
   "step": "underground_ores"
 }

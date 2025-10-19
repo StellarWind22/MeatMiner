@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.Optional;
 
+@SuppressWarnings("unused")
 public interface MeatLike {
 
     boolean drips();
