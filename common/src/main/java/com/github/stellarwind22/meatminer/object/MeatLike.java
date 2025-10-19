@@ -19,15 +19,15 @@ public interface MeatLike {
     Optional<RegistrySupplier<Block>> cookedVersion();
 
     default void dripAnimation(Level level, BlockPos blockPos, RandomSource randomSource) {
-        if(this.drips()) {
-
-            if (randomSource.nextInt(16) == 0) {
-                BlockPos blockPos2 = blockPos.below();
-                if(isFree(level.getBlockState(blockPos2))) {
-                    //ParticleUtils.spawnParticleBelow(level, blockPos, randomSource, );
-                }
-            }
-        }
+//        if(this.drips()) {
+//
+//            if (randomSource.nextInt(16) == 0) {
+//                BlockPos blockPos2 = blockPos.below();
+//                if(isFree(level.getBlockState(blockPos2))) {
+//                    //ParticleUtils.spawnParticleBelow(level, blockPos, randomSource, );
+//                }
+//            }
+//        }
     }
 
     @SuppressWarnings("deprecation")

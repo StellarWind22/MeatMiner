@@ -38,7 +38,7 @@ side = "BOTH"
 [[dependencies.meatminer]]
 modId = "midnightlib"
 type = "required"
-versionRange = "[1.7.5,)"
+versionRange = "[1.8.3,)"
 ordering = "AFTER"
 side = "BOTH"
 

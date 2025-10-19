@@ -4,7 +4,6 @@ import com.github.stellarwind22.meatminer.content.MeatMinerBlocks;
 import com.github.stellarwind22.meatminer.content.MeatMinerFoods;
 import com.github.stellarwind22.meatminer.content.MeatMinerItems;
 import com.github.stellarwind22.meatminer.content.MeatMinerTabs;
-import com.stellarwind22.meatminer.content.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

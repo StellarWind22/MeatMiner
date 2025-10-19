@@ -26,6 +26,7 @@ public class MeatSlab extends SlabBlock implements MeatLike {
         this(properties,true, cookedVersion);
     }
 
+    @SuppressWarnings("unused")
     public MeatSlab(Properties properties, boolean drips) {
         this(properties, drips,Optional.empty());
     }
