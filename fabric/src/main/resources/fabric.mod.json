@@ -15,10 +15,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.stellarwind22.meatminer.fabric.init.MeatMinerFabric"
+      "com.github.stellarwind22.meatminer.fabric.init.MeatMinerFabric"
     ],
     "client": [
-      "com.stellarwind22.meatminer.fabric.init.MeatMinerClientFabric"
+      "com.github.stellarwind22.meatminer.fabric.init.MeatMinerClientFabric"
     ]
   },
   "mixins": [
@@ -26,7 +26,7 @@
   ],
   "depends": {
     "fabricloader": ">=0.17.2",
-    "minecraft": "~1.21.8",
+    "minecraft": "~1.21.9",
     "java": ">=21",
     "architectury": ">=17.0.8",
     "fabric-api": "*"

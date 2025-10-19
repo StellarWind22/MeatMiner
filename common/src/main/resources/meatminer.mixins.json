@@ -1,13 +1,13 @@
 {
   "required": true,
-  "package": "com.stellarwind22.meatminer.mixin",
+  "package": "com.github.stellarwind22.meatminer.mixin",
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
   "client": [
   ],
   "mixins": [
-    "MerchantOfferMixin",
-    "FlowingFluidMixin"
+    "FlowingFluidMixin",
+    "MerchantOfferMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -24,7 +24,7 @@ side = "BOTH"
 [[dependencies.meatminer]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21.6,1.21.8]"
+versionRange = "[1.21.8,1.21.10]"
 ordering = "NONE"
 side = "BOTH"
 
